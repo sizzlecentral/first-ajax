@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  $.ajax({
-    url: 'http://first-ajax-api.herokuapp.com/',
-    method: 'GET',
-    data: {},
-    dataType: 'text'
-  });
+  var button = document.getElementById('run-ajax');
+  button.addEventListener('click', function() {
 
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/',
+      method: 'GET',
+      data: {},
+      dataType: 'text'
+    });
+  });
 });
