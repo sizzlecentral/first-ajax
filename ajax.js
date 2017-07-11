@@ -36,7 +36,21 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 
+  var buttonCount = document.getElementById('ajax-count');
+  buttonCount.addEventListener('click', function() {
 
+    var sectionCount = document.getElementById('step7');
+
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/count',
+      method: 'GET',
+      data: {},
+      dataType: 'text'
+    }).done(function(responseData) {
+      console.log(responseData);
+      sectionCount.append(responseData);
+    });
+  });
 
 
 
