@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-
   var buttonCount = document.getElementById('ajax-count');
   buttonCount.addEventListener('click', function() {
 
@@ -52,6 +51,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  var buttonTime = document.getElementById('ajax-time');
+  buttonTime.addEventListener('click', function() {
+
+    var sectionTime = document.getElementById('step8');
+
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/time',
+      method: 'GET',
+      data: {
+        timezone: 'America/Mexico_City'
+      },
+      dataType: 'text'
+    }).done(function(responseData) {
+      console.log(responseData);
+      sectionTime.append(responseData);
+    });
+  });
 
 
 });
