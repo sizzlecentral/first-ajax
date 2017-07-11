@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
   buttonPing.addEventListener('click', function() {
 
     $.ajax({
-      url: 'http://first-ajax-api.herokuapp.com/ping',
+      url: 'http://first-ajax-api.herokuapp.com/pong',
       method: 'GET',
       data: {},
       dataType: 'text'
@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log(responseData);
       var sectionPing = document.getElementById('step3456');
       sectionPing.append(responseData);
+    }).fail(function() {
+      var sectionPing = document.getElementById('step3456');
+      var failMessage = "Sorry, I will try harder next time";
+      sectionPing.append(failMessage);
     });
   });
 
