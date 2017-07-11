@@ -69,5 +69,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  var buttonCar = document.getElementById('ajax-car');
+  buttonCar.addEventListener('click', function() {
+
+    var sectionCar = document.getElementById('step9');
+
+    $.ajax({
+      url: 'http://first-ajax-api.herokuapp.com/a_car',
+      method: 'GET',
+      data: {},
+      dataType: 'html'
+    }).done(function(responseData) {
+      console.log(responseData);
+      var carList = document.createElement('ul');
+      carList.innerHTML = responseData;
+      sectionCar.append(carList);
+    });
+  });
 
 });
